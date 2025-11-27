@@ -72,7 +72,7 @@ if (isset($_GET['cid'])) {
         echo "                  <div class='section-col-max mx-auto'>";
         echo "                      <center>";
 
-        echo "                          <img src='./assets/logo.png' style=\"height: 150px;\" alt=''>";
+        echo "                          <img src='./assets/logo.png' style=\"height: 80px;\" alt=''>";
         echo "                      </center><br>";
         echo "                      <h3 style=\"font-weight: lighter;\" class='section-title mb-8'>Certificate Verification</h3>";
         echo "                      <h2 style=\"font-size: 60px;\" class='section-title mb-2'>{$certificate['student_name']}</h2>";
