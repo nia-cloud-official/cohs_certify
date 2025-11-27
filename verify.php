@@ -92,7 +92,7 @@ if (isset($_GET['cid'])) {
         echo "                                  <div class='meta'>Recieved Grade</div>";
         echo "                              </div><!--//item-->";
         echo "                              <div class='item col-6 col-lg-3 mb-3 mb-lg-0'>";
-        echo "                                  <div class='data'>{$expiry}</div>";
+        echo "                                  <div class='data' style='font-size:20px;'>{$expiry}</div>";
         echo "                                  <div class='meta'>Expiry Date</div>";
         echo "                              </div><!--//item-->";
         echo "                          </div><!--//row-->";
