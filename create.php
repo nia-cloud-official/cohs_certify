@@ -9,14 +9,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $certificate_id = $_POST['certificate_id'];
     $issued_date = $_POST['issued_date'];
 
+    // New fields
+    $number_of_modules = $_POST['number_of_modules'];
+    $grade = $_POST['grade'];
+    $expiry_date = !empty($_POST['expiry_date']) ? $_POST['expiry_date'] : NULL;
+
     // Save certificate record
-    $stmt = $db->conn->prepare("INSERT INTO certificates (student_name, course_name, certificate_id, issued_date) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $student_name, $course_name, $certificate_id, $issued_date);
+    $stmt = $db->conn->prepare("INSERT INTO certificates (student_name, course_name, certificate_id, issued_date, number_of_modules, grade, expiry_date) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssiss", $student_name, $course_name, $certificate_id, $issued_date, $number_of_modules, $grade, $expiry_date);
     if ($stmt->execute()) {
         echo "<p style='color:green;'>Certificate recorded successfully!</p>";
 
         // Generate QR code directly for download
-        $verifyUrl = "https://certification-ith.wasmer.app/verify.php?cid=" . urlencode($certificate_id);
+        $verifyUrl = "https://certification-cohs.wasmer.app/verify.php?cid=" . urlencode($certificate_id);
 
         echo "<p><a href='download_qr.php?cid=" . urlencode($certificate_id) . "' target='_blank'>Download QR Code</a></p>";
     } else {
@@ -185,6 +190,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="date" class="input" name="issued_date" required>
             <span>Issued Date</span>
         </label>
+
+        <!-- New fields -->
+        <label>
+            <input type="number" class="input" name="number_of_modules" min="0" required>
+            <span>Number of Modules</span>
+        </label>
+        <label>
+            <select class="input" name="grade" required>
+                <option value="" disabled selected>Select Grade</option>
+                <option value="PASS">PASS</option>
+                <option value="CREDIT">CREDIT</option>
+                <option value="DISTINCTION">DISTINCTION</option>
+            </select>
+            <span>Grade</span>
+        </label>
+        <label>
+            <input type="date" class="input" name="expiry_date">
+            <span>Expiry Date (optional)</span>
+        </label>
+
         <button class="submit" type="submit">Save</button>
     </form>
     <a href="./index.php"><button class="submit" type="submit">Back Home</button></a>

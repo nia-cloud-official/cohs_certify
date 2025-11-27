@@ -2,7 +2,7 @@
 class DB {
     public $conn;
     public function __construct() {
-        $this->conn = new mysqli("db.fr-pari1.bengt.wasmernet.com", "4d1865b27acb80002a176ec726a9", "06924d18-65b2-7f68-8000-50477f7705d5", "ith_certificates", 10272);
+        $this->conn = new mysqli("db.fr-pari1.bengt.wasmernet.com", "8a4c26ee7568800066a23ffffc8a", "06928a4c-26ee-7713-8000-25ea39caf2bf", "cohs_certificates", 10272);
         if ($this->conn->connect_error) {
             die("Connection failed: " . $this->conn->connect_error);
         }

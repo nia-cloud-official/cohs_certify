@@ -3,7 +3,7 @@ require_once "qrlib.php";
 
 if (isset($_GET['cid'])) {
     $certificate_id = $_GET['cid'];
-    $verifyUrl = "https://certification-ith.wasmer.app/verify.php?cid=" . urlencode($certificate_id);
+    $verifyUrl = "https://certification-cohs.wasmer.app/verify.php?cid=" . urlencode($certificate_id);
 
     header('Content-Type: image/png');
     header('Content-Disposition: attachment; filename="qr_' . $certificate_id . '.png"');
