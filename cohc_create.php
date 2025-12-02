@@ -14,15 +14,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 if ($stmt->execute()) {
     echo "<p style='color:green;'>ECD Certificate recorded successfully!</p>";
+
     $verifyUrl = "https://certification-cohs.wasmer.app/cohc_verify.php?cid=" . urlencode($certificate_id);
 
-    // Generate QR code directly
-    $qrFile = "qrcodes/" . $certificate_id . ".png";
-    QRcode::png($verifyUrl, $qrFile);
-    echo "<p><a href='$qrFile' target='_blank'>Download QR Code</a></p>";
+    echo "<p><a href='download_qr_cohc.php?cid=" . urlencode($certificate_id) . "' target='_blank'>Download QR Code</a></p>";
 } else {
     echo "<p style='color:red;'>Error: " . $stmt->error . "</p>";
-    }
+}
+
+
 }
 ?>
 <!DOCTYPE html>
