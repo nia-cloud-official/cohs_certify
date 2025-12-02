@@ -109,7 +109,7 @@ if (isset($_GET['cid'])) {
 
         echo "                                  <div class='lead-form-wrapper single-col-max mx-auto theme-bg-light rounded p-5'>";
         echo "                                      <h4 class='form-heading text-center mb-3'>For more details</h4>";
-        echo "                                      <div class='form-intro text-center mb-3'>Please contact ITH at info@cohs.education or leave your email below and we will get back to you.</div>";
+        echo "                                      <div class='form-intro text-center mb-3'>Please contact COHS at info@cohs.education or leave your email below and we will get back to you.</div>";
         echo "                                      <div class='form-wrapper'>";
         echo "                                          <form class='lead-form' netlify>";
         echo "                                              <div class='form-group mb-3'>";
